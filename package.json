@@ -1,0 +1,23 @@
+{
+  "name": "curiosity",
+  "version": "0.1.0",
+  "description": "(DEMO)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CuriosityAR/curiosity.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CuriosityAR/curiosity/issues"
+  },
+  "homepage": "https://github.com/CuriosityAR/curiosity#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "pug": "^2.0.3"
+  }
+}
