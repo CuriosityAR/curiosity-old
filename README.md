@@ -9,7 +9,14 @@ At your project root directory, tape in your terminal :
 npm i --save
 ```
 
-Then, run the server :
+Then, rename the `env.json.example` file to `env.json`
+
+```sh
+mv env.json.example env.json
+```
+
+Right, now you can run the server ...
+
 
 ```sh
 node app.js

@@ -1,2 +1,5 @@
 # Node relatives folders
 node_modules/
+
+# Project relative files
+/env.json
