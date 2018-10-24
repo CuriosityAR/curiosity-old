@@ -1,8 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     transition: 0.2s;
+    font-family: 'Roboto', sans-serif;
+}
+
+@keyframes toggle {
+    from {
+        opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+    }
 }
 
 #ux {
@@ -85,7 +98,7 @@
     padding: 20px;
 
     border-radius: 5px;
-    
+
     background: #fff;
 }
 
@@ -130,4 +143,41 @@
 #addlocform button:nth-of-type(2) {
     border: 1px solid #f12c6e;
     color: #f12c6e;
+}
+
+#trigger {
+    opacity: 0;
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    perspective: 800px;
+    perspective-origin: 50% 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+#triggerContent {
+    text-align: justify;
+
+    /* background: rgba(255, 255, 255, 0.2); */
+    /* border: 1px solid rgba(255, 255, 255, 0.2); */
+    border-radius: 5px;
+    
+    transition: 0.2s !important;
+
+    padding: 20px;
+}
+
+#trigger * {
+    color: #fff;
+}
+
+#trigger h2#label {
+    margin-bottom: 20px;
+}
+
+#trigger p:not(:nth-last-of-type(1)) {
+    margin-bottom: 10px;
 }
