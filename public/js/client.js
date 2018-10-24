@@ -72,9 +72,14 @@ window.onload = () => {
                     lon: curLon
                 }
             }, res => {
+                if (res === 'OK')
+                    alert(`New location added :\nlabel: ${label.value}\nlat: ${curLat}\nlon: ${curLon}`)
+                else
+                    alert(`Could not add this location : label "${label.value}" already exist.`)
+
                 label.value = null
                 describe.value = null
-                
+
                 console.log(`Added new location : ${res}`)
             })
         }
