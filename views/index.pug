@@ -12,3 +12,25 @@ html(lang="en")
         
         title Curiosity prototype
     body
+        #ux
+            #menu
+
+            #debugger
+                .box#infos
+                    .infos-content
+                        p#object object: N/A
+                        p#lat lat: 0.0
+                        p#lon lon: 0.0
+
+                .box#addloc
+                    button +
+
+            #addlocform
+                h2 Add this location
+
+                input(type="text", name="label" placeholder="Label")
+                textarea(name="describe", rows="10", placeholder="Describe here ...")
+
+                #addlocbuttons
+                    button(type="submit") Add
+                    button(type="cancel") Cancel

@@ -33,7 +33,7 @@ export class Camera {
             video: {
                 facingMode: {
                     exact: 'environment'
-                } 
+                }
             }
         }).then(stream => this._video.srcObject = stream)
           .catch(err => console.log(`[err] ${err}`))

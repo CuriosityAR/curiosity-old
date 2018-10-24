@@ -1,7 +1,9 @@
 'use strict'
 
 export class Gyroscope {
-    static trace(handler) {
+    constructor() {}
+
+    trace(handler) {
         window.addEventListener('deviceorientation', e => {
             handler({
                 x: e.gamma,
