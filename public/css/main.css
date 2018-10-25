@@ -8,16 +8,6 @@
     font-family: 'Roboto', sans-serif;
 }
 
-@keyframes toggle {
-    from {
-        opacity: 0;
-    }
-  
-    to {
-        opacity: 1;
-    }
-}
-
 #ux {
     position: fixed;
 
@@ -179,5 +169,52 @@
 }
 
 #trigger p:not(:nth-last-of-type(1)) {
+    margin-bottom: 10px;
+}
+
+#menu {
+    position: absolute;
+
+    height: 100%;
+
+    top: 0;
+    left: 0;
+}
+
+#menu * {
+    color: #fff;
+}
+
+#menu #nav {
+    opacity: 0;
+
+    height: 100%;
+    width: 150px;
+
+    margin-left: 12px;
+
+    /* background: #fff; */
+}
+
+#menu #nav ul {
+    margin-left: 10px;
+}
+
+#menu #nav ul li {
+    margin-bottom: 10px;
+    list-style: none;
+}
+
+#menu #burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin: 20px 0 0 20px;
+}
+
+#menu #burger span {
+    border: 1px solid #fff;
+    width: 40px;
     margin-bottom: 10px;
 }

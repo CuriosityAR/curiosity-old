@@ -1,18 +1,18 @@
 'use script'
 
+import { Gyroscope } from './gyroscope.js'
+import { Camera } from './camera.js'
+import { Geolocation } from './geolocation.js'
+
 export class Device {
-    constructor() {
-        for (let arg of arguments) {
-            this[arg.name] = new arg
-        }
-    }
+    constructor(components = {}) {
+        if (components.geolocation)
+            this.geolocation = new Geolocation()
 
-    fullscreen() {
-        let el = document.body;
-
-        if (el.requestFullscreen) el.requestFullscreen()
-        else if (el.mozRequestFullScreen) el.mozRequestFullScreen()
-        else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen()
-        else if (el.msRequestFullscreen) el.msRequestFullscreen()
+        if (components.orientation)
+            this.orientation = new Gyroscope()
+            
+        if (components.camera)
+            this.camera = new Camera()
     }
 }

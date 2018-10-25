@@ -8,19 +8,35 @@ html(lang="en")
 
         link(rel="stylesheet", href="/static/css/main.css")
 
-        script(src="/static/js/client.js", type="module")
+        script(src="/static/js/app.js", type="module")
         
         title Curiosity prototype
     body
         #ux
             #menu
+                #burger
+                    span
+                    span
+                    span
+
+                #nav
+                    img(src="/static/images/logo.png", alt="logo", width="150", height="50")
+
+                    ul
+                        li Découvrir
+                        li Evènements
+                        li Monuments
+                        li Contact
 
             #debugger
                 .box#infos
                     .infos-content
-                        p#object object: N/A
-                        p#lat lat: 0.0
-                        p#lon lon: 0.0
+                        p object: 
+                            span#object n/a
+                        p lat: 
+                            span#lat 0.0
+                        p lon: 
+                            span#lon 0.0
 
                 .box#addloc
                     button +
