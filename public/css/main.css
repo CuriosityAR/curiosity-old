@@ -218,3 +218,15 @@
     width: 40px;
     margin-bottom: 10px;
 }
+
+#object {
+    color: rgb(62, 235, 194);
+}
+
+#lat, #lon {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#trigger #label {
+    color: rgb(62, 235, 194);
+}

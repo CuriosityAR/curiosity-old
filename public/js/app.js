@@ -3,10 +3,11 @@
 import { Device } from './lib/device.js'
 import { HTTP } from './lib/http.js'
 
-const BOX_COLLIDER = 150
-const COMPASS_ANGLE = 40
-const COMPASS_ERR = 100
+const BOX_COLLIDER = 8000
+const COMPASS_ANGLE = 20
+const COMPASS_ERR = 0
 const TSLEEP = 200
+const NB_VIBRATIONS = 0
 
 var dLat = document.querySelector('#lat')
 var dLon = document.querySelector('#lon')
@@ -51,11 +52,14 @@ HTTP.get('/locations', locs => {
                     loc.lon
                 )
                 
+                console.log(`loc: ${loc.label}\nbearing: ${bearing}\ncompass: ${mobile.orientation.compassHeading()}\n`)
+
                 // Compass matched with bearing
-                if (mobile.orientation.compassHeading() < (bearing + COMPASS_ANGLE + COMPASS_ERR) &&
-                    mobile.orientation.compassHeading() > (bearing - COMPASS_ANGLE + COMPASS_ERR))
+                if (mobile.orientation.compassHeading() < (bearing + COMPASS_ANGLE + COMPASS_ERR) % 360 &&
+                    mobile.orientation.compassHeading() > (bearing - COMPASS_ANGLE + COMPASS_ERR) % 360) {
                     showTrigger(loc.label, loc.describe)
-                else resetTrigger()
+                    break
+                }  else resetTrigger()
             }
         }
 
@@ -66,8 +70,13 @@ HTTP.get('/locations', locs => {
 function showTrigger(label, describe) {
     let rotateY = 0
     let range = 50
+
+    window.navigator.vibrate([500, 500])
+
     tLabel.textContent = label
     tDesc.textContent = describe
+
+    // console.log('trigger: ' + label)
     
     if (mobile.orientation.gamma < -range) rotateY = -range
     else if (mobile.orientation.gamma > range) rotateY = range
@@ -87,6 +96,10 @@ function resetTrigger() {
 function updateLatLon() {
     dLat.textContent = mobile.geolocation.lat
     dLon.textContent = mobile.geolocation.lon
+}
+
+function vibrate(ms) {
+    window.navigator.vibrate(ms)
 }
 
 burger.addEventListener('click', e => menu.style.opacity = menu.style.opacity == 1 ? 0 : 1)
